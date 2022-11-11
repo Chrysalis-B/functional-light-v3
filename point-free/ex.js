@@ -1,24 +1,33 @@
 "use strict";
 
-function output(txt) {
+const output = (txt) => {
 	console.log(txt);
 }
 
-function printIf(shouldPrintIt) {
-	return function(msg) {
-		if (shouldPrintIt(msg)) {
-			output(msg);
-		}
-	};
+const not = (fn) => {
+	return (...args) => {
+		return !fn(...args);
+	}
 }
 
-function isShortEnough(str) {
+const when = (fn) => {
+	return (predicate) => {
+		return (...args) => {
+			if (predicate(...args)) {
+				return fn(...args);
+			}
+		}
+	}
+}
+
+
+const printIf = when(output);
+
+const isShortEnough = (str) => {
 	return str.length <= 5;
 }
 
-function isLongEnough(str) {
-	return !isShortEnough(str);
-}
+const isLongEnough = not(isShortEnough);
 
 var msg1 = "Hello";
 var msg2 = msg1 + " World";
