@@ -1,9 +1,5 @@
 "use strict";
 
-const output = (txt) => {
-	console.log(txt);
-}
-
 const not = (fn) => {
 	return (...args) => {
 		return !fn(...args);
@@ -20,6 +16,7 @@ const when = (fn) => {
 	}
 }
 
+const output = console.log;
 
 const printIf = when(output);
 
