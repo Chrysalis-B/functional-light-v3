@@ -1,6 +1,6 @@
 "use strict";
 
-const students = [
+let students = [
 	{ id: 260, name: "Kyle" },
 	{ id: 729, name: "Susan" },
 	{ id: 42, name: "Frank" },
@@ -35,7 +35,13 @@ function sortStudentsByID() {
 
 
 // modify/move this function
-function getStudentsByID() { return students; }
+function getStudentsByID(currentStudentList) { 
+	const originalStudentList = [...students];
+	students = currentStudentList;
+	const modifyStudentList = sortStudentsByID();
+	students = originalStudentList;
+	return [...modifyStudentList];
+}
 
 // *************************************
 
