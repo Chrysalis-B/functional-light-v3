@@ -5,12 +5,17 @@ function decrement(x) { return x - 1; }
 function double(x) { return x * 2; }
 function half(x) { return x / 2; }
 
-const compose = () => {
-  return compose;
+const compose = (...args) => {
+  return pipe(...args.reverse())
 }
 
-const pipe = () => {
-  return pipe;
+const pipe = (...args) => {
+  return (value) => {
+		for (let arg of args) {
+			value = arg(value);
+		}
+		return value;
+	};
 }
 
 const f1 = compose(increment, decrement);
