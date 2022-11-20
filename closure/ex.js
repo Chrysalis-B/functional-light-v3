@@ -1,7 +1,10 @@
 "use strict";
 
 function strBuilder(str) {
-	return strBuilder;
+	return value => {
+		if (typeof value !== 'string') return str;
+		else return strBuilder(`${str}${value}`);
+	}
 }
 
 const hello = strBuilder("Hello, ");
