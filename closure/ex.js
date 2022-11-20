@@ -4,11 +4,11 @@ function strBuilder(str) {
 	return strBuilder;
 }
 
-var hello = strBuilder("Hello, ");
-var kyle = hello("Kyle");
-var susan = hello("Susan");
-var question = kyle("?")();
-var greeting = susan("!")();
+const hello = strBuilder("Hello, ");
+const kyle = hello("Kyle");
+const susan = hello("Susan");
+const question = kyle("?")();
+const greeting = susan("!")();
 
 console.log(strBuilder("Hello, ")("")("Kyle")(".")("")() === "Hello, Kyle.");
 console.log(hello() === "Hello, ");
