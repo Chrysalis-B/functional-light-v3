@@ -26,8 +26,8 @@ const isShortEnough = (str) => {
 
 const isLongEnough = not(isShortEnough);
 
-var msg1 = "Hello";
-var msg2 = msg1 + " World";
+const msg1 = "Hello";
+const msg2 = msg1 + " World";
 
 printIf(isShortEnough)(msg1);		// Hello
 printIf(isShortEnough)(msg2);
