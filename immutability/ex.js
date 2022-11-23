@@ -12,7 +12,7 @@ function pickNumber(numberToAdd, numbers) {
 	return numbers;
 }
 
-var luckyLotteryNumbers = [];
+let luckyLotteryNumbers = [];
 
 while (luckyLotteryNumbers.length < 6) {
 	luckyLotteryNumbers = pickNumber(
