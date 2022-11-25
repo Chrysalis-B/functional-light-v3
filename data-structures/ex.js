@@ -21,8 +21,14 @@ const reducedObj = reduceObj(function (acc, v) {
 	return acc + v;
 }, 0, filteredNumsProducts);
 // 38886
-console.log('🚀 ~ file: ex.js ~ line 25 ~ reducedObj ~ reducedObj', reducedObj);
+console.log('🚀 ~ file: ex.js ~ line 24 ~ reducedObj ~ reducedObj', reducedObj);
 
+const piped = pipe(
+	curry(2)(filterObj)(compose(isOdd, listSum)),
+	curry(2)(mapObj)(listProduct),
+	curry(3)(reduceObj)(sum)(0)
+)(nums);
+console.log('🚀 ~ file: ex.js ~ line 31 ~ piped', piped);
 
 // ************************************
 
