@@ -17,10 +17,11 @@ const filteredNumsProducts = mapObj(function (list) {
 	return listProduct(list);
 }, filteredNums);
 
-reduceObj(function (acc, v) {
+const reducedObj = reduceObj(function (acc, v) {
 	return acc + v;
 }, 0, filteredNumsProducts);
 // 38886
+console.log('🚀 ~ file: ex.js ~ line 25 ~ reducedObj ~ reducedObj', reducedObj);
 
 
 // ************************************
@@ -28,18 +29,30 @@ reduceObj(function (acc, v) {
 function mapObj(mapperFn, obj) {
 	const newObj = {};
 	const keys = Object.keys(obj);
-	for (let key of keys) {
+	for (const key of keys) {
 		newObj[key] = mapperFn(obj[key]);
 	}
 	return newObj;
 }
 
 function filterObj(predicateFn, obj) {
-	// TODO
+	const newObj = {};
+	const keys = Object.keys(obj);
+	for (const key of keys) {
+		if (predicateFn(obj[key])) {
+			newObj[key] = obj[key];
+		}
+	}
+	return newObj;
 }
 
 function reduceObj(reducerFn, initialValue, obj) {
-	// TODO
+	let result = initialValue;
+	const values = Object.values(obj);
+	for (const value of values) {
+		result = reducerFn(result, value);
+	}
+	return result;
 }
 
 
