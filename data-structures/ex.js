@@ -3,17 +3,17 @@
 // inception!
 curry = curry(2, curry);
 
-var nums = {
+const nums = {
 	first: [3, 5, 2, 4, 9, 1, 12, 3],
 	second: [5, 7, 7, 9, 10, 4, 2],
 	third: [1, 1, 3, 2]
 };
 
-var filteredNums = filterObj(function (list) {
+const filteredNums = filterObj(function (list) {
 	return isOdd(listSum(list));
 }, nums);
 
-var filteredNumsProducts = mapObj(function (list) {
+const filteredNumsProducts = mapObj(function (list) {
 	return listProduct(list);
 }, filteredNums);
 
@@ -26,8 +26,8 @@ reduceObj(function (acc, v) {
 // ************************************
 
 function mapObj(mapperFn, obj) {
-	var newObj = {};
-	var keys = Object.keys(obj);
+	const newObj = {};
+	const keys = Object.keys(obj);
 	for (let key of keys) {
 		newObj[key] = mapperFn(obj[key]);
 	}
@@ -46,9 +46,9 @@ function reduceObj(reducerFn, initialValue, obj) {
 // ************************************
 
 function curry(arity, fn) {
-	return (function nextCurried(prevArgs) {
+	return (function nextCurried(preconstgs) {
 		return function curried(nextArg) {
-			var args = prevArgs.concat([nextArg]);
+			const args = preconstgs.concat([nextArg]);
 			if (args.length >= arity) {
 				return fn(...args);
 			}
